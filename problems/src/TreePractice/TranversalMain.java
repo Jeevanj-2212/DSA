@@ -12,6 +12,8 @@ public class TranversalMain {
         System.out.println(t.inorder(t.root));
         System.out.println(t.preorder(t.root));
         System.out.println(t.postOrder(t.root));
+        System.out.println(t.countNode(t.root));
+        System.out.println(t.height(t.root));
 
     }
 }

@@ -5,6 +5,8 @@ import java.util.List;
 
 public class BST {
     TreeNode root;
+    int count;
+    int h;
 
     void insert(int val) {
         TreeNode current = root;
@@ -91,6 +93,26 @@ public class BST {
         preorderHelper(node.right,ls);
     }
 
+ int countNode(TreeNode root) {
+     count=0;
+     countHelper(root);
+     return count;
+
+
+ }
+ void countHelper(TreeNode root) {
+        if(root==null) {
+            return;
+        }
+        else {
+            count++;
+            countHelper(root.left);
+            countHelper(root.right);
+
+        }
+ }
+
+
     List<Integer> postOrder(TreeNode root) {
         List<Integer> ls = new ArrayList<>();
         postOrderHelper(root,ls);
@@ -103,6 +125,15 @@ public class BST {
         postOrderHelper(node.left,ls);
         postOrderHelper(node.right,ls);
         ls.add(node.val);
+    }
+    int height(TreeNode node) {
+        if(node==null) {
+            return 0;
+        }
+        int leftHeight = height(node.left);
+        int rightHeight = height(node.right);
+        return Math.max(leftHeight,rightHeight)+1;
+
     }
 
 }
