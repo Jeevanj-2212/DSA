@@ -35,6 +35,7 @@ public class MainClass {
         System.out.println(tree.root.right.val);
         System.out.println(tree.root.left.left.val);
         System.out.println(tree.root.right.val);
+        System.out.println(tree.minVal());
 
 
     }
