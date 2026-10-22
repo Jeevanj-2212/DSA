@@ -6,7 +6,8 @@ import java.util.List;
 public class BST {
     TreeNode root;
     int count;
-    int h;
+    int res;
+    int c;
 
     void insert(int val) {
         TreeNode current = root;
@@ -77,6 +78,30 @@ public class BST {
         inorderHelper(node.left,ls);
         ls.add(node.val);
         inorderHelper(node.right,ls);
+
+    }
+
+    int kthSmallElement(TreeNode node,int k) {
+        List <Integer>ls=inorder(node);
+        return ls.get(k-1);
+    }
+
+    int kthElement(TreeNode node,int k) {
+        c= 0;
+        res=-1;
+        kthInorder(node,k);
+        return res;
+    }
+    void kthInorder (TreeNode node,int k) {
+        if(node == null||c==k) {
+            return;
+        }
+        kthInorder(node.left,k);
+        c++;
+        if(c==k) {
+            res = node.val;
+        }
+        kthInorder(node.right,k);
 
     }
     List<Integer> preorder(TreeNode root) {
